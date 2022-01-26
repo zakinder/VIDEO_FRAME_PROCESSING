@@ -1,0 +1,21 @@
+[submodule "ZEDBOARD/workspace"]
+	path = ZEDBOARD/workspace
+	url = https://github.com/zakinder/workspace.git
+[submodule "ZEDBOARD/ip_lib/VFP"]
+	path = ZEDBOARD/ip_lib/VFP
+	url = https://github.com/zakinder/VFP.git
+[submodule "ZEDBOARD/backup_workspace/SDK"]
+	path = ZEDBOARD/backup_workspace/SDK
+	url = https://github.com/zakinder/SDK.git
+[submodule "ZEDBOARD/ip_lib/HDMI_OUT"]
+	path = ZEDBOARD/ip_lib/HDMI_OUT
+	url = https://github.com/zakinder/HDMI_OUT.git
+[submodule "ZEDBOARD/ip_lib/SINE_GEN"]
+	path = ZEDBOARD/ip_lib/SINE_GEN
+	url = https://github.com/zakinder/SINE_GEN.git
+[submodule "ZEDBOARD/ip_lib/AVNET_HDMI"]
+	path = ZEDBOARD/ip_lib/AVNET_HDMI
+	url = https://github.com/zakinder/AVNET_HDMI.git
+[submodule "ZEDBOARD/uvm_tb/VFP_TEST"]
+	path = ZEDBOARD/uvm_tb/VFP_TEST
+	url = https://github.com/zakinder/VFP_TEST.git

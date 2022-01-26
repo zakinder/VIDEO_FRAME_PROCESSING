@@ -1,0 +1,2 @@
+INDEX  ROW  COLUMN |iR  iG  iB | oR  oG  oB
+338    6    18     |162 159 168| 2   1   1

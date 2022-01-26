@@ -1,0 +1,2 @@
+INDEX  ROW  COLUMN |iR  iG  iB | oR  oG  oB
+393    4    9      |66  69  68 | 255 255 255

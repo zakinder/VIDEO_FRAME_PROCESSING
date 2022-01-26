@@ -1,0 +1,7 @@
+SDK.log
+ZEDBOARD.hdf
+.metadata/
+.Xil/
+RemoteSystemsTempFiles/
+ZEDBOARD_hw_platform_0/
+webtalk/

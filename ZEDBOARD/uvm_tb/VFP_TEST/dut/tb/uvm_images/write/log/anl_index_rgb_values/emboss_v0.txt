@@ -1,0 +1,1 @@
+1    108 CuMaxRed= 108 CuRowMaxAvgRed= 54  LtRowMaxRed= 0   AvgRed= 81

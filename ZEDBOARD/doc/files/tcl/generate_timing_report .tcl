@@ -1,0 +1,1 @@
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -nworst 2 -slack_lesser_than 10 -significant_digits 2 -input_pins -file K:/ZEDBOARD/report/timing_report.txt
