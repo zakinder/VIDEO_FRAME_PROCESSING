@@ -1,2 +1,0 @@
-INDEX  ROW  COLUMN |iR  iG  iB | oR  oG  oB
-226    4    34     |141 146 156| 1   1   1
