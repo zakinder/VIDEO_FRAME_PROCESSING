@@ -247,6 +247,20 @@ port (
     iRgb           : in channel;
     oRgb           : out channel);
 end component rgb_inverted;
+
+component rgb_to_xyz_color_space is
+generic (
+    i_data_width  : integer := 8);
+port (
+    clk            : in  std_logic;
+    reset          : in  std_logic;
+    iRgb           : in channel;
+    oRgb           : out channel);
+end component rgb_to_xyz_color_space;
+
+
+
+
 component hsvl is
 generic (
     i_data_width  : integer := 8);

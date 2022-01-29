@@ -81,7 +81,7 @@ architecture behavioral of video_process_tb is
     constant L_AVG                       : boolean := false;
     constant L_OBJ                       : boolean := false;
     constant L_SPC                       : boolean := false; --init_channel
-    constant L_HIS                       : boolean := true;
+    constant L_HIS                       : boolean := false;
     -------------------------------------------------
     constant F_SHP                       : boolean := false;
     constant F_BLU                       : boolean := false;
@@ -91,12 +91,12 @@ architecture behavioral of video_process_tb is
     constant L_D1T                       : boolean := false; 
     constant L_B1T                       : boolean := false;
     -------------------------------------------------
-    constant F_RGB                       : boolean := true;
+    constant F_RGB                       : boolean := false;
     constant F_YCC                       : boolean := false;
     constant F_CGA                       : boolean := false;
     constant L_SHP                       : boolean := false; -- synSharp
     constant L_CGA                       : boolean := false; -- synCgain
-    constant L_YCC                       : boolean := false; 
+    constant L_YCC                       : boolean := true; 
     -------------------------------------------------
     constant MASK_TRUE                   : boolean := true;
     constant MASK_FLSE                   : boolean := false;
@@ -134,7 +134,6 @@ architecture behavioral of video_process_tb is
     -------------------------------------------------
     constant F_BLUR_CHANNELS             : boolean := false;
     constant F_DITH_CHANNELS             : boolean := false;
-
     -------------------------------------------------
     -- FILTER_K_CGA = F_SHP_TO_YCC F_SHP_TO_SHP F_BLU_TO_CGA F_CGA_TO_CGA
     -------------------------------------------------

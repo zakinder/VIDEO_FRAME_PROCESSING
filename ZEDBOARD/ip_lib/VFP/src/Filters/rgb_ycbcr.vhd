@@ -163,7 +163,7 @@ begin
     C_I32_CR_R <= x"82ec0725";
     C_I32_CR_G <= x"6da187a5";
     C_I32_CR_B <= x"154a7f80";
-    C_I_16 <= (others => '0');
+    C_I_16     <= (others => '0');
   end generate;
   -- Compute coefficients constants in desired precsion, with a bit of rounding
   C_I_Y_R <= C_I32_Y_R(31 downto 31-i_precision+1)

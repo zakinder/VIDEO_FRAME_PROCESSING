@@ -1199,9 +1199,29 @@ type w_4_by_4_pixels is record
     k16 : unsigned(i_data_width downto 0);
 end record;
 
+type w_3_by_3_pixels is record
+    k1  : unsigned(23 downto 0);
+    k2  : unsigned(23 downto 0);
+    k3  : unsigned(23 downto 0);
+    k4  : unsigned(23 downto 0);
+    k5  : unsigned(23 downto 0);
+    k6  : unsigned(23 downto 0);
+    k7  : unsigned(23 downto 0);
+    k8  : unsigned(23 downto 0);
+    k9  : unsigned(23 downto 0);
+end record;
 
-
-
+type w_3_by_3_pixels_28_width is record
+    k1  : unsigned(31 downto 0);
+    k2  : unsigned(31 downto 0);
+    k3  : unsigned(31 downto 0);
+    k4  : unsigned(31 downto 0);
+    k5  : unsigned(31 downto 0);
+    k6  : unsigned(31 downto 0);
+    k7  : unsigned(31 downto 0);
+    k8  : unsigned(31 downto 0);
+    k9  : unsigned(31 downto 0);
+end record;
 
 type itaps is record
     iTap1  : unsigned(i_data_width downto 0);
