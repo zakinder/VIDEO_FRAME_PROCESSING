@@ -804,6 +804,20 @@ port (
     iRgb                        : in channel;
     oRgb                        : out channel);
 end component blur_filter;
+component blur_filter_4by4 is
+generic (
+    iMSB                        : integer := 11;
+    iLSB                        : integer := 4;
+    i_data_width                : integer := 8;
+    img_width                   : integer := 256;
+    adwrWidth                   : integer := 16;
+    addrWidth                   : integer := 12);
+port (
+    clk                         : in std_logic;
+    rst_l                       : in std_logic;
+    iRgb                        : in channel;
+    oRgb                        : out channel);
+end component blur_filter_4by4;
 component blur_mac is
 generic (
     i_data_width        : integer := 8);

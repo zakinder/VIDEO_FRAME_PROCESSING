@@ -51,6 +51,8 @@ package body vfp_pkg is
            return 255;
        elsif bmp = "255_127" then
            return 255;
+       elsif bmp = "258_200" then
+           return 258;
        elsif bmp = "272_416" then
            return 272;
        elsif bmp = "272_832" then
@@ -61,6 +63,8 @@ package body vfp_pkg is
            return 368;
        elsif bmp = "385_289" then
            return 385;
+       elsif bmp = "496_565" then
+           return 496;
        elsif bmp = "500_26" then
            return 500;
        elsif bmp = "500_200" then
@@ -83,6 +87,10 @@ package body vfp_pkg is
            return 1000;
        elsif bmp = "1012_606" then
            return 1012;
+       elsif bmp = "1024_1024" then
+           return 1024;
+       elsif bmp = "1200_1600" then
+           return 1200;
        end if;
     end;
     ----------------------------------------------------------------------------------------------------
@@ -98,6 +106,8 @@ package body vfp_pkg is
            return 255;
        elsif bmp = "255_127" then
            return 127;
+       elsif bmp = "258_200" then
+           return 200;
        elsif bmp = "272_416" then
            return 416;
        elsif bmp = "272_832" then
@@ -108,6 +118,8 @@ package body vfp_pkg is
            return 289;
        elsif bmp = "368_393" then
            return 393;
+       elsif bmp = "496_565" then
+           return 565;
        elsif bmp = "500_26" then
            return 26;
        elsif bmp = "500_200" then
@@ -130,6 +142,10 @@ package body vfp_pkg is
            return 500;
        elsif bmp = "1012_606" then
            return 606;
+       elsif bmp = "1024_1024" then
+           return 1024;
+       elsif bmp = "1200_1600" then
+           return 1600;
        end if;
     end;
     ----------------------------------------------------------------------------------------------------

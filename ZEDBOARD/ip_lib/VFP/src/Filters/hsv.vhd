@@ -7,6 +7,21 @@
 -- Description:
 -- This file instantiation
 -- p ← RGB2HSV(p)
+-- This module converts rgb color space to hsl color space. First logic 
+-- calculates maximum and minimum value of rgb values. Hue is calculated 
+-- first determining the hue fraction from greatest rgb channel value. 
+-- If current max channel is red than Hue numerator will be set to be green 
+-- subtract blue only if green is greater than blue else blue is subtracted 
+-- from green and Hue degree would be zero.  If current max channel is green 
+-- than Hue numerator will be set to be blue subtract red only if blue is greater 
+-- than red else red is subtracted from blue and Hue degree would be 129. 
+-- Similarly, if current channel is blue than Hue numerator will be set to be 
+-- red subtract green only if red is greater than green else green subtracted from 
+-- red and Hue degree would be 212. Hue denominator would be rgb delta. 
+-- Once Hue fraction values are calculated than fraction values would be added 
+-- to hue degree which would give final hue value as done logic.Saturate value 
+-- is calculated from difference between rgb max and min over rgb max whereas 
+-- Intensity value rgb max value.
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -146,24 +161,28 @@ end process pipRgbD2P;
 hueP: process (clk) begin
   if rising_edge(clk) then
     if (uFs3Rgb.red  = maxValue) then
-            hueDeg <= 0;
         if (uFs3Rgb.green >= uFs3Rgb.blue) then
-            uFiXhueTop        <= (uFs3Rgb.green - uFs3Rgb.blue) * 85;
+            hueDeg <= 0;
+            uFiXhueTop        <= (uFs3Rgb.green - uFs3Rgb.blue) * 44;
         else
+            hueDeg <= 0;
             uFiXhueTop        <= (uFs3Rgb.blue - uFs3Rgb.green) * 85;
         end if;
     elsif(uFs3Rgb.green = maxValue)  then
-            hueDeg <= 86;
         if (uFs3Rgb.blue >= uFs3Rgb.red ) then
-            uFiXhueTop       <= (uFs3Rgb.blue - uFs3Rgb.red ) * 84;
+            hueDeg <= 129;
+            uFiXhueTop       <= (uFs3Rgb.blue - uFs3Rgb.red ) * 43;
         else
+            hueDeg <= 86;
             uFiXhueTop       <= (uFs3Rgb.red  - uFs3Rgb.blue) * 84;
         end if;
     elsif(uFs3Rgb.blue = maxValue)  then
-            hueDeg <= 171;
+
         if (uFs3Rgb.red  >= uFs3Rgb.green) then
-            uFiXhueTop       <= (uFs3Rgb.red  - uFs3Rgb.green) * 84;
+            hueDeg <= 212;
+            uFiXhueTop       <= (uFs3Rgb.red  - uFs3Rgb.green) * 43;
         else
+            hueDeg <= 171;
             uFiXhueTop       <= (uFs3Rgb.green - uFs3Rgb.red ) * 84;
         end if;
     end if;
