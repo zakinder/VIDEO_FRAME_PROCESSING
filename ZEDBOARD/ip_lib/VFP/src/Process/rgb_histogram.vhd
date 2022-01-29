@@ -14,7 +14,6 @@ use ieee.numeric_std.all;
 use work.constants_package.all;
 use work.vpf_records.all;
 use work.ports_package.all;
-
 entity rgb_histogram is
 generic (
     img_width      : integer := 1920;
@@ -26,9 +25,7 @@ port (
     iRgb           : in channel;
     oRgb           : out channel);
 end rgb_histogram;
-
 architecture behavioral of rgb_histogram is
-
     type ram_type is array (0 to 255) of natural;
     signal red_rowbuffer        : ram_type;
     signal gre_rowbuffer        : ram_type;
@@ -39,22 +36,18 @@ architecture behavioral of rgb_histogram is
     signal red_io3data          : std_logic_vector(7 downto 0)   := (others => '0');
     signal gre_io3data          : std_logic_vector(7 downto 0)   := (others => '0');
     signal blu_io3data          : std_logic_vector(7 downto 0)   := (others => '0');
-    
     signal red_rowdist          : natural   := zero;
     signal red_rowdistNv        : natural   := zero;
     signal red_rowdistNext      : natural   := zero;
     signal red_lines            : pix_line_array(0 to 10);
-    
     signal gre_rowdist          : natural   := zero;
     signal gre_rowdistNv        : natural   := zero;
     signal gre_rowdistNext      : natural   := zero;
     signal gre_lines            : pix_line_array(0 to 10);
-    
     signal blu_rowdist          : natural   := zero;
     signal blu_rowdistNv        : natural   := zero;
     signal blu_rowdistNext      : natural   := zero;
     signal blu_lines            : pix_line_array(0 to 10);
-    
     signal cordinates           : cord;
     signal cord_xy              : cord;
     signal frame_done           : std_logic := lo;
@@ -62,18 +55,18 @@ architecture behavioral of rgb_histogram is
     signal valid_on             : std_logic := lo;
     signal cord_xy_x            : natural   := zero;
     signal pWrAdr               : natural   := zero;
-
 begin
-
 cordinates.x  <= (to_integer(unsigned(txCord.x)));
 cordinates.y  <= (to_integer(unsigned(txCord.y)));
 
+
+
+-- Assign memory location as rgb red channel input integer between 0 to 255 which equally 8 bits to express 256 levels address. Every input value would accumlated to its location to show how many hits per level.
 process (clk) begin
 if rising_edge(clk) then
     if (iRgb.valid = hi) then
         red_io1data   <= red_rowbuffer(to_integer(unsigned(iRgb.red)));
         red_io3data   <= iRgb.red;
-
         red_rowbuffer(to_integer(unsigned(red_io3data))) <= red_io1data + 1;
     end if;
 end if;
@@ -83,7 +76,6 @@ if rising_edge(clk) then
     if (iRgb.valid = hi) then
         gre_io1data   <= gre_rowbuffer(to_integer(unsigned(iRgb.green)));
         gre_io3data   <= iRgb.green;
-
         gre_rowbuffer(to_integer(unsigned(gre_io3data))) <= gre_io1data + 1;
     end if;
 end if;
@@ -97,9 +89,7 @@ if rising_edge(clk) then
     end if;
 end if;
 end process;
-
 frame_done <= hi when (cordinates.x = img_width-1 and cordinates.y = img_height-1 and pWrAdr /= 255);
-
 -----------------------------------------------------------------------------------------
 process(clk) begin
     if rising_edge(clk) then
@@ -123,7 +113,6 @@ process(clk) begin
         end if;
     end if;
 end process;
-
 Process (clk) begin
     if rising_edge(clk) then
         if (frame_done = hi) then
@@ -221,7 +210,6 @@ Process (clk) begin
         end if;
     end if;
 end process;
-
 process(clk) begin
     if rising_edge(clk) then
         if ((pWrAdr < 256) and (frame_done = hi)) then
@@ -230,8 +218,6 @@ process(clk) begin
         end if;
     end if;
 end process;
-
-
 Process (clk) begin
     if rising_edge(clk) then
         if (frame_done = hi) then
@@ -329,7 +315,6 @@ Process (clk) begin
         end if;
     end if;
 end process;
-
 process(clk) begin
     if rising_edge(clk) then
         if ((pWrAdr < 256) and (frame_done = hi)) then
@@ -338,7 +323,6 @@ process(clk) begin
         end if;
     end if;
 end process;
-
 Process (clk) begin
     if rising_edge(clk) then
         if (frame_done = hi) then
@@ -463,8 +447,6 @@ process(clk) begin
         end if;
     end if;
 end process;
-
-
 process(clk) begin
     if rising_edge(clk) then
         if(cord_xy.y <= 25) then
